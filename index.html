@@ -149,6 +149,13 @@
     border-left-style: solid;
   }
 
+  /* NAV RESPONSIVE */
+  @media (min-width: 600px) {
+    .nav-inner { flex-direction: row !important; align-items: center !important; }
+    .nav-links { margin-left: auto; }
+    .nav-links a { flex: none !important; }
+  }
+
   /* TABLET AND UP */
   @media (min-width: 600px) {
     body { padding: 48px 32px; }
@@ -181,11 +188,13 @@
 </head>
 <body>
 
-<nav style="display:flex;justify-content:space-between;align-items:center;margin-bottom:48px;background:#1A1512;padding:14px 20px;border-radius:16px;">
-  <span style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500;color:#C9A84C;letter-spacing:.04em;">Skinmatics</span>
-  <div style="display:flex;gap:8px;">
-    <a href="index.html" style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#1A1512;text-decoration:none;padding:10px 18px;border-radius:30px;background:#C9A84C;font-weight:500;">Palette & Fonts</a>
-    <a href="wireframe.html" style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#C9A84C;text-decoration:none;padding:10px 18px;border-radius:30px;border:1px solid #C9A84C;font-weight:500;">Wireframe</a>
+<nav style="margin-bottom:40px;">
+  <div class="nav-inner" style="background:#1A1512;padding:14px 18px;border-radius:16px;display:flex;flex-direction:column;gap:12px;">
+    <span style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;color:#C9A84C;letter-spacing:.04em;">Skinmatics</span>
+    <div class="nav-links" style="display:flex;gap:8px;">
+      <a href="index.html" style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#1A1512;text-decoration:none;padding:10px 18px;border-radius:30px;background:#C9A84C;font-weight:500;flex:1;text-align:center;">Palette & Fonts</a>
+      <a href="wireframe.html" style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#C9A84C;text-decoration:none;padding:10px 18px;border-radius:30px;border:1px solid #C9A84C;font-weight:500;flex:1;text-align:center;">Wireframe</a>
+    </div>
   </div>
 </nav>
 
