@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Skinmatics · Homepage Wireframe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #F2F2F0;
+    --surface: #E8E8E6;
+    --surface-2: #DDDBD8;
+    --surface-3: #CECCC8;
+    --border: #C8C6C2;
+    --text-primary: #1A1A1A;
+    --text-secondary: #6B6B6B;
+    --text-muted: #9A9A9A;
+    --accent: #3A3A3A;
+    --white: #FFFFFF;
+  }
+
+  body {
+    background: var(--bg);
+    font-family: 'Inter', sans-serif;
+    color: var(--text-primary);
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 20px 20px 0;
+  }
+
+  /* =====================
+     UTILS
+  ===================== */
+  .label {
+    font-size: 10px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .img-block {
+    background: var(--surface-2);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 11px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+
+  .section-wrap {
+    padding: 56px 24px;
+  }
+
+  .section-eyebrow {
+    font-size: 10px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .section-sub {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 36px;
+    max-width: 560px;
+    line-height: 1.65;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--white);
+    padding: 12px 24px;
+    border-radius: 40px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .06em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .btn-outline {
+    display: inline-block;
+    border: 1.5px solid var(--accent);
+    color: var(--accent);
+    padding: 12px 24px;
+    border-radius: 40px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .06em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .btn-ghost {
+    display: inline-block;
+    background: rgba(255,255,255,.15);
+    border: 1.5px solid rgba(255,255,255,.5);
+    color: var(--white);
+    padding: 12px 24px;
+    border-radius: 40px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .06em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  /* =====================
+     TOP BAR
+  ===================== */
+  .top-bar {
+    background: var(--accent);
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .top-bar-text {
+    font-size: 11px;
+    color: rgba(255,255,255,.7);
+    letter-spacing: .04em;
+  }
+
+  .top-bar-cta {
+    background: white;
+    color: var(--accent);
+    padding: 7px 18px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    flex-shrink: 0;
+    text-decoration: none;
+  }
+
+  /* =====================
+     NAV
+  ===================== */
+  .nav {
+    background: var(--white);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 2px 12px rgba(0,0,0,.04);
+  }
+
+  .nav-logo {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: .04em;
+  }
+
+  .nav-links {
+    display: none;
+    gap: 28px;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    letter-spacing: .04em;
+  }
+
+  .nav-book {
+    background: var(--accent);
+    color: var(--white);
+    padding: 9px 20px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .nav-hamburger {
+    width: 36px;
+    height: 36px;
+    background: var(--surface);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .nav-hamburger span {
+    width: 18px;
+    height: 1.5px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    display: block;
+  }
+
+  /* =====================
+     HERO
+  ===================== */
+  .hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+  }
+
+  .hero-img {
+    position: absolute;
+    inset: 0;
+    background: var(--surface-3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-img-label {
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10,10,10,.85) 0%, rgba(10,10,10,.3) 50%, rgba(10,10,10,0) 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    padding: 0 24px 48px;
+    z-index: 2;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    background: rgba(255,255,255,.15);
+    border: 1px solid rgba(255,255,255,.3);
+    color: rgba(255,255,255,.9);
+    font-size: 10px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 30px;
+    margin-bottom: 16px;
+  }
+
+  .hero-headline {
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 14px;
+    max-width: 480px;
+  }
+
+  .hero-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,.75);
+    margin-bottom: 28px;
+    max-width: 400px;
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  /* =====================
+     TRUST BAR
+  ===================== */
+  .trust-bar {
+    background: var(--white);
+    padding: 24px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .trust-item {
+    background: var(--white);
+    padding: 20px 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .trust-number {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1;
+  }
+
+  .trust-label {
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  /* =====================
+     TREATMENTS
+  ===================== */
+  .treatments-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .treatment-card {
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,.05);
+  }
+
+  .treatment-img {
+    width: 100%;
+    height: 130px;
+  }
+
+  .treatment-body {
+    padding: 14px;
+  }
+
+  .treatment-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+
+  .treatment-desc {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+
+  .treatment-link {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-primary);
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .treatment-link::after { content: '→'; }
+
+  /* =====================
+     DOCTORS
+  ===================== */
+  .doctors-scroll {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding: 4px 24px 16px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .doctors-scroll::-webkit-scrollbar { display: none; }
+
+  .doctor-card-wire {
+    min-width: 200px;
+    width: 200px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,.10);
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    position: relative;
+    height: 280px;
+    background: var(--surface-3);
+  }
+
+  .doctor-card-wire .img-block {
+    position: absolute;
+    inset: 0;
+    border-radius: 0;
+  }
+
+  .doctor-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 40px 16px 18px;
+    background: linear-gradient(to top, rgba(10,10,10,.88) 0%, rgba(10,10,10,.6) 50%, rgba(10,10,10,0) 100%);
+  }
+
+  .doctor-card-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 2px;
+    line-height: 1.2;
+  }
+
+  .doctor-card-role {
+    font-size: 10px;
+    color: rgba(255,255,255,.7);
+    letter-spacing: .04em;
+    margin-bottom: 10px;
+  }
+
+  .doctor-card-btn {
+    display: block;
+    text-align: center;
+    background: rgba(255,255,255,.15);
+    border: 1px solid rgba(255,255,255,.4);
+    color: var(--white);
+    padding: 8px 0;
+    border-radius: 30px;
+    font-size: 10px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .scroll-hint {
+    font-size: 11px;
+    color: var(--text-muted);
+    padding: 0 24px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .scroll-hint::after {
+    content: '→';
+    font-size: 13px;
+  }
+
+  /* =====================
+     RESULTS
+  ===================== */
+  .results-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .result-card {
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,.05);
+  }
+
+  .result-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  .result-label-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .result-label-item {
+    padding: 6px 14px;
+    font-size: 10px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: var(--surface);
+  }
+
+  .result-caption {
+    padding: 14px 16px;
+  }
+
+  .result-treatment {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+
+  .result-detail {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  /* =====================
+     TESTIMONIALS
+  ===================== */
+  .testimonials-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .testimonial-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 22px 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.05);
+  }
+
+  .testimonial-quote {
+    font-size: 14px;
+    color: var(--text-primary);
+    line-height: 1.7;
+    margin-bottom: 16px;
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .testimonial-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--surface-2);
+    flex-shrink: 0;
+  }
+
+  .testimonial-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+  }
+
+  .testimonial-meta {
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  /* =====================
+     LOCATIONS
+  ===================== */
+  .locations-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .location-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.05);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .location-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .location-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+
+  .location-address {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .location-map-thumb {
+    width: 64px;
+    height: 64px;
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+
+  .location-actions {
+    display: flex;
+    gap: 8px;
+  }
+
+  .location-btn {
+    flex: 1;
+    text-align: center;
+    padding: 9px 0;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .location-btn-primary {
+    background: var(--accent);
+    color: var(--white);
+  }
+
+  .location-btn-outline {
+    border: 1.5px solid var(--border);
+    color: var(--text-secondary);
+  }
+
+  /* =====================
+     CTA STRIP
+  ===================== */
+  .cta-strip {
+    background: var(--accent);
+    padding: 56px 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .cta-strip-title {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.2;
+    max-width: 340px;
+  }
+
+  .cta-strip-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,.65);
+    max-width: 320px;
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  .cta-strip-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .cta-strip-btns a {
+    display: block;
+    text-align: center;
+    padding: 14px 0;
+    border-radius: 40px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  /* =====================
+     FOOTER
+  ===================== */
+  .footer {
+    background: #111;
+    padding: 48px 24px 32px;
+    color: rgba(255,255,255,.6);
+  }
+
+  .footer-logo {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 12px;
+    letter-spacing: .04em;
+  }
+
+  .footer-tagline {
+    font-size: 12px;
+    color: rgba(255,255,255,.4);
+    margin-bottom: 36px;
+    line-height: 1.6;
+    max-width: 280px;
+  }
+
+  .footer-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 40px;
+  }
+
+  .footer-col-title {
+    font-size: 10px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.4);
+    margin-bottom: 14px;
+  }
+
+  .footer-col a {
+    display: block;
+    font-size: 13px;
+    color: rgba(255,255,255,.65);
+    text-decoration: none;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.1);
+    padding-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footer-copy {
+    font-size: 11px;
+    color: rgba(255,255,255,.3);
+  }
+
+  /* =====================
+     SECTION DIVIDERS
+  ===================== */
+  .section-alt { background: var(--white); }
+  .section-default { background: var(--bg); }
+
+  /* =====================
+     DESKTOP
+  ===================== */
+  @media (min-width: 768px) {
+    .section-wrap { padding: 80px 56px; }
+
+    /* Nav */
+    .nav { padding: 20px 56px; }
+    .nav-hamburger { display: none; }
+    .nav-links { display: flex; }
+
+    /* Top bar */
+    .top-bar { padding: 10px 56px; }
+
+    /* Hero */
+    .hero { min-height: 92vh; }
+    .hero-content { padding: 0 56px 72px; }
+    .hero-headline { font-size: 56px; max-width: 640px; }
+    .hero-sub { font-size: 16px; max-width: 520px; }
+
+    /* Trust bar */
+    .trust-bar { grid-template-columns: repeat(3, 1fr); }
+    .trust-number { font-size: 28px; }
+
+    /* Treatments */
+    .treatments-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .treatment-img { height: 160px; }
+
+    /* Doctors */
+    .doctors-scroll { padding: 4px 56px 20px; gap: 20px; }
+    .doctor-card-wire { min-width: 240px; width: 240px; height: 320px; }
+
+    /* Results */
+    .results-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+
+    /* Locations */
+    .locations-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+
+    /* CTA */
+    .cta-strip { padding: 80px 56px; }
+    .cta-strip-title { font-size: 40px; max-width: 480px; }
+    .cta-strip-btns { flex-direction: row; max-width: none; width: auto; }
+    .cta-strip-btns a { padding: 14px 32px; }
+
+    /* Footer */
+    .footer { padding: 64px 56px 40px; }
+    .footer-cols { grid-template-columns: repeat(4, 1fr); }
+    .footer-bottom { flex-direction: row; justify-content: space-between; align-items: center; }
+  }
+
+  @media (min-width: 1100px) {
+    .treatments-grid { grid-template-columns: repeat(5, 1fr); }
+    .results-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  .nav-inner { border-radius: 16px; }
+  @media (min-width: 600px) {
+    .nav-inner { flex-direction: row !important; align-items: center !important; }
+    .nav-links { margin-left: auto; }
+    .nav-links a { flex: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== TOP BAR ===================== -->
+<div class="top-bar">
+  <span class="top-bar-text">5 clinics across Bangalore · Now open in HSR Layout</span>
+  <a href="#" class="top-bar-cta">Book a Consultation</a>
+</div>
+
+<!-- ===================== NAV ===================== -->
+<nav class="nav">
+  <div class="nav-logo">Skinmatics</div>
+  <div class="nav-links">
+    <a href="#">Treatments</a>
+    <a href="#">Our Doctors</a>
+    <a href="#">Locations</a>
+    <a href="#">About</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <a href="#" class="nav-book" style="display:none;" id="nav-book-desktop">Book Now</a>
+    <div class="nav-hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="hero-img">
+    <span class="hero-img-label">Clinic / Treatment Photography</span>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-tag">Skinmatics · Bangalore</span>
+    <h1 class="hero-headline">Expert Skin & Hair Care, Across Bangalore</h1>
+    <p class="hero-sub">Board-certified dermatologists. USFDA-approved technology. Five clinics, one standard of care.</p>
+    <div class="hero-ctas">
+      <a href="#" class="btn-primary" style="background:white;color:#1a1a1a;">Book a Consultation</a>
+      <a href="#" class="btn-ghost">WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TRUST BAR ===================== -->
+<div class="trust-bar">
+  <div class="trust-item">
+    <span class="trust-number">5</span>
+    <span class="trust-label">Clinics Across Bangalore</span>
+  </div>
+  <div class="trust-item">
+    <span class="trust-number">10,000+</span>
+    <span class="trust-label">Patients Treated</span>
+  </div>
+  <div class="trust-item">
+    <span class="trust-number">USFDA</span>
+    <span class="trust-label">Approved Technology</span>
+  </div>
+</div>
+
+<!-- ===================== TREATMENTS ===================== -->
+<section class="section-wrap section-default">
+  <p class="section-eyebrow">What We Treat</p>
+  <h2 class="section-title">Our Signature Treatments</h2>
+  <p class="section-sub">Clinically proven protocols for the most common skin and hair concerns, delivered by specialist dermatologists.</p>
+  <div class="treatments-grid">
+
+    <div class="treatment-card">
+      <div class="img-block treatment-img">Treatment Photo</div>
+      <div class="treatment-body">
+        <p class="treatment-name">Acne Treatment</p>
+        <p class="treatment-desc">Targeted protocols for active acne and breakout prevention.</p>
+        <a href="#" class="treatment-link">Learn More</a>
+      </div>
+    </div>
+
+    <div class="treatment-card">
+      <div class="img-block treatment-img">Treatment Photo</div>
+      <div class="treatment-body">
+        <p class="treatment-name">Acne Scar Treatment</p>
+        <p class="treatment-desc">Advanced resurfacing to reduce scarring and restore smooth skin.</p>
+        <a href="#" class="treatment-link">Learn More</a>
+      </div>
+    </div>
+
+    <div class="treatment-card">
+      <div class="img-block treatment-img">Treatment Photo</div>
+      <div class="treatment-body">
+        <p class="treatment-name">Hair Transplant</p>
+        <p class="treatment-desc">Permanent hair restoration with natural-looking results.</p>
+        <a href="#" class="treatment-link">Learn More</a>
+      </div>
+    </div>
+
+    <div class="treatment-card">
+      <div class="img-block treatment-img">Treatment Photo</div>
+      <div class="treatment-body">
+        <p class="treatment-name">Pigmentation</p>
+        <p class="treatment-desc">Even skin tone treatments for dark spots and hyperpigmentation.</p>
+        <a href="#" class="treatment-link">Learn More</a>
+      </div>
+    </div>
+
+    <div class="treatment-card">
+      <div class="img-block treatment-img">Treatment Photo</div>
+      <div class="treatment-body">
+        <p class="treatment-name">Laser Hair Removal</p>
+        <p class="treatment-desc">Permanent hair reduction using USFDA-approved laser technology.</p>
+        <a href="#" class="treatment-link">Learn More</a>
+      </div>
+    </div>
+
+    <div class="treatment-card" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px 20px;background:var(--accent);cursor:pointer;min-height:220px;">
+      <div style="width:48px;height:48px;border-radius:50%;border:2px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+        <span style="color:white;font-size:22px;line-height:1;">+</span>
+      </div>
+      <p style="font-size:15px;font-weight:600;color:white;margin-bottom:8px;line-height:1.3;">View All Treatments</p>
+      <p style="font-size:12px;color:rgba(255,255,255,.6);line-height:1.5;">Explore our full range of skin, hair and body treatments</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== DOCTORS ===================== -->
+<section class="section-alt" style="padding: 56px 0;">
+  <div style="padding: 0 24px; margin-bottom: 24px;">
+    <p class="section-eyebrow">The Team</p>
+    <h2 class="section-title">Meet Our Specialists</h2>
+    <p class="section-sub" style="margin-bottom:8px;">Board-certified dermatologists with specialisations across skin, hair, and cosmetic procedures.</p>
+  </div>
+  <p class="scroll-hint" style="padding: 0 24px;">Scroll to meet the team</p>
+  <div class="doctors-scroll">
+
+    <div class="doctor-card-wire">
+      <div class="img-block" style="position:absolute;inset:0;border-radius:0;">Doctor Photo</div>
+      <div class="doctor-card-overlay">
+        <p class="doctor-card-name">Dr. Suganya Naidu</p>
+        <p class="doctor-card-role">Founder & Medical Director · MD Dermatology</p>
+        <a href="#" class="doctor-card-btn">Book a Consultation</a>
+      </div>
+    </div>
+
+    <div class="doctor-card-wire">
+      <div class="img-block" style="position:absolute;inset:0;border-radius:0;">Doctor Photo</div>
+      <div class="doctor-card-overlay">
+        <p class="doctor-card-name">Dr. [Name]</p>
+        <p class="doctor-card-role">Senior Dermatologist · Specialisation</p>
+        <a href="#" class="doctor-card-btn">Book a Consultation</a>
+      </div>
+    </div>
+
+    <div class="doctor-card-wire">
+      <div class="img-block" style="position:absolute;inset:0;border-radius:0;">Doctor Photo</div>
+      <div class="doctor-card-overlay">
+        <p class="doctor-card-name">Dr. [Name]</p>
+        <p class="doctor-card-role">Dermatologist · Specialisation</p>
+        <a href="#" class="doctor-card-btn">Book a Consultation</a>
+      </div>
+    </div>
+
+    <div class="doctor-card-wire">
+      <div class="img-block" style="position:absolute;inset:0;border-radius:0;">Doctor Photo</div>
+      <div class="doctor-card-overlay">
+        <p class="doctor-card-name">Dr. [Name]</p>
+        <p class="doctor-card-role">Dermatologist · Specialisation</p>
+        <a href="#" class="doctor-card-btn">Book a Consultation</a>
+      </div>
+    </div>
+
+    <!-- Spacer so last card doesn't sit flush -->
+    <div style="min-width:8px;flex-shrink:0;"></div>
+  </div>
+</section>
+
+<!-- ===================== RESULTS ===================== -->
+<section class="section-wrap section-default">
+  <p class="section-eyebrow">Real Results</p>
+  <h2 class="section-title">Patient Results</h2>
+  <p class="section-sub">Consented before and after photography. Results vary by individual. All treatments performed by board-certified dermatologists.</p>
+  <div class="results-grid">
+
+    <div class="result-card">
+      <div class="result-images">
+        <div class="img-block" style="height:160px;border-radius:0;">Before</div>
+        <div class="img-block" style="height:160px;border-radius:0;background:var(--surface-3);">After</div>
+      </div>
+      <div class="result-label-bar">
+        <div class="result-label-item">Before</div>
+        <div class="result-label-item">After</div>
+      </div>
+      <div class="result-caption">
+        <p class="result-treatment">Acne Scar Treatment</p>
+        <p class="result-detail">3 sessions of fractional CO2 laser · 12 weeks apart · Whitefield clinic</p>
+      </div>
+    </div>
+
+    <div class="result-card">
+      <div class="result-images">
+        <div class="img-block" style="height:160px;border-radius:0;">Before</div>
+        <div class="img-block" style="height:160px;border-radius:0;background:var(--surface-3);">After</div>
+      </div>
+      <div class="result-label-bar">
+        <div class="result-label-item">Before</div>
+        <div class="result-label-item">After</div>
+      </div>
+      <div class="result-caption">
+        <p class="result-treatment">Pigmentation Treatment</p>
+        <p class="result-detail">4 sessions of Q-Switch laser · 6 weeks apart · Hennur clinic</p>
+      </div>
+    </div>
+
+    <div class="result-card">
+      <div class="result-images">
+        <div class="img-block" style="height:160px;border-radius:0;">Before</div>
+        <div class="img-block" style="height:160px;border-radius:0;background:var(--surface-3);">After</div>
+      </div>
+      <div class="result-label-bar">
+        <div class="result-label-item">Before</div>
+        <div class="result-label-item">After</div>
+      </div>
+      <div class="result-caption">
+        <p class="result-treatment">Acne Treatment</p>
+        <p class="result-detail">Combination therapy · 8 weeks · KK Nagar clinic</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIALS ===================== -->
+<section class="section-wrap section-alt">
+  <p class="section-eyebrow">Patient Stories</p>
+  <h2 class="section-title">What Our Patients Say</h2>
+  <p class="section-sub">Real experiences from real patients. Names shared with permission.</p>
+  <div class="testimonials-list">
+
+    <div class="testimonial-card">
+      <p class="testimonial-quote">"After struggling with acne scars for years, the treatment at Skinmatics genuinely changed how I feel about my skin. The doctor took the time to understand my concerns before recommending anything."</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar"></div>
+        <div>
+          <p class="testimonial-name">Priya R.</p>
+          <p class="testimonial-meta">Acne Scar Treatment · Whitefield Clinic</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <p class="testimonial-quote">"I had been to multiple clinics before coming to Skinmatics. The difference was how clearly they explained the treatment plan. No pressure, no upselling — just honest advice."</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar"></div>
+        <div>
+          <p class="testimonial-name">Arjun M.</p>
+          <p class="testimonial-meta">Hair Transplant · Hennur Clinic</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <p class="testimonial-quote">"The results from my pigmentation treatment were visible within the first two sessions. The team is professional and the clinic is immaculately clean."</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar"></div>
+        <div>
+          <p class="testimonial-name">Kavitha S.</p>
+          <p class="testimonial-meta">Pigmentation Treatment · HSR Clinic</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== LOCATIONS ===================== -->
+<section class="section-wrap section-default">
+  <p class="section-eyebrow">Find Us</p>
+  <h2 class="section-title">Our Clinics</h2>
+  <p class="section-sub">Five locations across Bangalore, all offering the same standard of specialist care.</p>
+  <div class="locations-grid">
+
+    <div class="location-card">
+      <div class="location-header">
+        <div>
+          <p class="location-name">Hennur</p>
+          <p class="location-address">123, Hennur Main Road, Bangalore 560043</p>
+        </div>
+        <div class="img-block location-map-thumb">Map</div>
+      </div>
+      <div class="location-actions">
+        <a href="#" class="location-btn location-btn-primary">Book Here</a>
+        <a href="#" class="location-btn location-btn-outline">Get Directions</a>
+      </div>
+    </div>
+
+    <div class="location-card">
+      <div class="location-header">
+        <div>
+          <p class="location-name">Whitefield</p>
+          <p class="location-address">456, Whitefield Main Road, Bangalore 560066</p>
+        </div>
+        <div class="img-block location-map-thumb">Map</div>
+      </div>
+      <div class="location-actions">
+        <a href="#" class="location-btn location-btn-primary">Book Here</a>
+        <a href="#" class="location-btn location-btn-outline">Get Directions</a>
+      </div>
+    </div>
+
+    <div class="location-card">
+      <div class="location-header">
+        <div>
+          <p class="location-name">Kanakapura</p>
+          <p class="location-address">789, Kanakapura Road, Bangalore 560062</p>
+        </div>
+        <div class="img-block location-map-thumb">Map</div>
+      </div>
+      <div class="location-actions">
+        <a href="#" class="location-btn location-btn-primary">Book Here</a>
+        <a href="#" class="location-btn location-btn-outline">Get Directions</a>
+      </div>
+    </div>
+
+    <div class="location-card">
+      <div class="location-header">
+        <div>
+          <p class="location-name">KK Nagar, Chennai</p>
+          <p class="location-address">321, KK Nagar, Chennai 600078</p>
+        </div>
+        <div class="img-block location-map-thumb">Map</div>
+      </div>
+      <div class="location-actions">
+        <a href="#" class="location-btn location-btn-primary">Book Here</a>
+        <a href="#" class="location-btn location-btn-outline">Get Directions</a>
+      </div>
+    </div>
+
+    <div class="location-card">
+      <div class="location-header">
+        <div>
+          <p class="location-name">HSR Layout <span style="font-size:10px;background:#3A3A3A;color:white;padding:2px 8px;border-radius:10px;margin-left:6px;font-weight:500;vertical-align:middle;">New</span></p>
+          <p class="location-address">654, HSR Layout, Bangalore 560102</p>
+        </div>
+        <div class="img-block location-map-thumb">Map</div>
+      </div>
+      <div class="location-actions">
+        <a href="#" class="location-btn location-btn-primary">Book Here</a>
+        <a href="#" class="location-btn location-btn-outline">Get Directions</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== CTA STRIP ===================== -->
+<section class="cta-strip">
+  <h2 class="cta-strip-title">Ready for Skin That Reflects You?</h2>
+  <p class="cta-strip-sub">Book a consultation at any of our five Bangalore clinics. Same-day appointments available.</p>
+  <div class="cta-strip-btns">
+    <a href="#" style="background:white;color:#1a1a1a;font-weight:600;font-size:12px;letter-spacing:.06em;">Book a Consultation</a>
+    <a href="#" style="border:1.5px solid rgba(255,255,255,.5);color:white;font-size:12px;letter-spacing:.06em;">WhatsApp Us</a>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <p class="footer-logo">Skinmatics</p>
+  <p class="footer-tagline">Expert dermatology across Bangalore. Board-certified specialists. USFDA-approved technology.</p>
+  <div class="footer-cols">
+    <div class="footer-col">
+      <p class="footer-col-title">Treatments</p>
+      <a href="#">Acne Treatment</a>
+      <a href="#">Acne Scar Treatment</a>
+      <a href="#">Hair Transplant</a>
+      <a href="#">Pigmentation</a>
+      <a href="#">Laser Hair Removal</a>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Clinics</p>
+      <a href="#">Hennur</a>
+      <a href="#">Whitefield</a>
+      <a href="#">Kanakapura</a>
+      <a href="#">KK Nagar, Chennai</a>
+      <a href="#">HSR Layout</a>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">About</p>
+      <a href="#">About Skinmatics</a>
+      <a href="#">Our Doctors</a>
+      <a href="#">Patient Results</a>
+      <a href="#">Blog</a>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Contact</p>
+      <a href="#">Book a Consultation</a>
+      <a href="#">WhatsApp</a>
+      <a href="#">Email Us</a>
+      <a href="#">Careers</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 Skinmatics. All rights reserved.</p>
+    <p class="footer-copy">Privacy Policy · Terms of Use</p>
+  </div>
+</footer>
+
+<script>
+  // Show book button in nav on desktop
+  const navBook = document.getElementById('nav-book-desktop');
+  if(window.innerWidth >= 768) navBook.style.display = 'block';
+  window.addEventListener('resize', () => {
+    navBook.style.display = window.innerWidth >= 768 ? 'block' : 'none';
+  });
+</script>
+
+<div style="position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:999;background:#1A1512;border-radius:40px;padding:10px 8px 10px 16px;display:flex;align-items:center;gap:10px;box-shadow:0 8px 32px rgba(0,0,0,.25);">
+  <span style="font-family:'Inter',sans-serif;font-size:11px;color:rgba(255,255,255,.5);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;">Previewing</span>
+  <a href="index.html" style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#C9A84C;text-decoration:none;padding:8px 14px;border-radius:30px;border:1px solid rgba(201,168,76,.4);white-space:nowrap;">Palette & Fonts</a>
+  <a href="wireframe.html" style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#1A1512;text-decoration:none;padding:8px 14px;border-radius:30px;background:#C9A84C;font-weight:600;white-space:nowrap;">Wireframe</a>
+</div>
+
+</body>
+</html>
