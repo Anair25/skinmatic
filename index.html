@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Skinmatics · Palette & Font Options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Lato:wght@300;400;700&family=Fraunces:ital,opsz,wght@1,9..144,300;1,9..144,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #E8E4DC;
+    font-family: 'Inter', sans-serif;
+    padding: 40px 20px;
+  }
+
+  .page-eyebrow {
+    font-size: 11px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #9A8E82;
+    margin-bottom: 8px;
+  }
+
+  .page-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: #1A1512;
+    margin-bottom: 36px;
+    line-height: 1.1;
+  }
+
+  /* OUTER OPTION CARD */
+  .option-card {
+    border-radius: 24px;
+    padding: 24px;
+    margin-bottom: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    box-shadow: 0 16px 48px rgba(0,0,0,.08);
+  }
+
+  /* INNER DOCTOR CARD */
+  .doctor-card {
+    width: 100%;
+    height: 380px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,.20);
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .doctor-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .doctor-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 56px 20px 22px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dr-name { line-height: 1.2; margin-bottom: 4px; }
+  .dr-role { margin-bottom: 16px; }
+
+  .dr-btn {
+    display: block;
+    text-align: center;
+    padding: 12px 0;
+    border-radius: 40px;
+    font-size: 12px;
+    letter-spacing: .06em;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  /* INFO PANEL */
+  .info-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .option-tag {
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .swatches {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .sw {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .sw-dot {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .sw-hex { font-size: 9px; font-family: 'Courier New', monospace; }
+  .sw-name { font-size: 9px; text-align: center; max-width: 44px; line-height: 1.3; }
+
+  .font-row { display: flex; flex-direction: column; gap: 20px; }
+  .font-block {}
+  .font-role { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 5px; }
+  .font-name { font-size: 20px; line-height: 1.2; margin-bottom: 4px; }
+  .font-sample { font-size: 13px; line-height: 1.65; margin-bottom: 4px; }
+  .font-meta { font-size: 10px; }
+
+  .option-note {
+    font-size: 13px;
+    line-height: 1.8;
+    padding-left: 14px;
+    border-left-width: 2px;
+    border-left-style: solid;
+  }
+
+  /* TABLET AND UP */
+  @media (min-width: 600px) {
+    body { padding: 48px 32px; }
+    .page-title { font-size: 38px; margin-bottom: 44px; }
+    .doctor-card { height: 420px; }
+    .font-row { flex-direction: row; gap: 32px; }
+    .font-block { flex: 1; }
+  }
+
+  /* DESKTOP */
+  @media (min-width: 900px) {
+    body { padding: 64px 56px; }
+    .page-title { font-size: 42px; margin-bottom: 56px; }
+    .option-card {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 40px;
+      padding: 36px;
+      border-radius: 28px;
+    }
+    .doctor-card {
+      width: 240px;
+      height: 360px;
+      border-radius: 20px;
+    }
+    .info-panel { gap: 28px; padding-top: 4px; }
+    .sw-dot { width: 42px; height: 42px; }
+  }
+</style>
+</head>
+<body>
+
+<nav style="display:flex;justify-content:space-between;align-items:center;margin-bottom:48px;background:#1A1512;padding:14px 20px;border-radius:16px;">
+  <span style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500;color:#C9A84C;letter-spacing:.04em;">Skinmatics</span>
+  <div style="display:flex;gap:8px;">
+    <a href="index.html" style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#1A1512;text-decoration:none;padding:10px 18px;border-radius:30px;background:#C9A84C;font-weight:500;">Palette & Fonts</a>
+    <a href="wireframe.html" style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#C9A84C;text-decoration:none;padding:10px 18px;border-radius:30px;border:1px solid #C9A84C;font-weight:500;">Wireframe</a>
+  </div>
+</nav>
+
+<p class="page-eyebrow">Skinmatics · Brand Direction</p>
+<h1 class="page-title">Colour & Typography Options</h1>
+
+
+<!-- ===== OPTION 1 ===== -->
+<div class="option-card" style="background:#FAF7F2;">
+
+  <div class="doctor-card">
+    <img src="https://i.postimg.cc/rFjSffNx/Suganya.webp" alt="Dr. Suganya Naidu"/>
+    <div class="doctor-overlay" style="background:linear-gradient(to top, rgba(250,247,242,1) 0%, rgba(250,247,242,0.85) 55%, rgba(250,247,242,0) 100%);">
+      <p class="dr-name" style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;color:#1A1A1A;">Dr. Suganya Naidu</p>
+      <p class="dr-role" style="font-family:'Inter',sans-serif;font-size:11px;color:#8A7E74;letter-spacing:.03em;">Founder & Medical Director</p>
+      <a class="dr-btn" style="font-family:'Inter',sans-serif;background:#1A1A1A;color:#FAF7F2;font-weight:500;">Book a Consultation</a>
+    </div>
+  </div>
+
+  <div class="info-panel">
+    <p class="option-tag" style="color:#9A8E82;">Option 01 · Clinical Editorial</p>
+    <div>
+      <p class="section-label" style="color:#B0A498;">Colour Palette</p>
+      <div class="swatches">
+        <div class="sw"><div class="sw-dot" style="background:#1A1A1A;"></div><span class="sw-hex" style="color:#6E6358;">#1A1A1A</span><span class="sw-name" style="color:#9A8E82;">Ink Black</span></div>
+        <div class="sw"><div class="sw-dot" style="background:#E8B4A0;"></div><span class="sw-hex" style="color:#6E6358;">#E8B4A0</span><span class="sw-name" style="color:#9A8E82;">Peach Coral</span></div>
+        <div class="sw"><div class="sw-dot" style="background:#C9A84C;border:1px solid #ddd;"></div><span class="sw-hex" style="color:#6E6358;">#C9A84C</span><span class="sw-name" style="color:#9A8E82;">Logo Gold</span></div>
+        <div class="sw"><div class="sw-dot" style="background:#FAF7F2;border:1px solid #D8D0C6;"></div><span class="sw-hex" style="color:#6E6358;">#FAF7F2</span><span class="sw-name" style="color:#9A8E82;">Bone White</span></div>
+        <div class="sw"><div class="sw-dot" style="background:#8A7E74;"></div><span class="sw-hex" style="color:#6E6358;">#8A7E74</span><span class="sw-name" style="color:#9A8E82;">Warm Stone</span></div>
+      </div>
+    </div>
+    <div>
+      <p class="section-label" style="color:#B0A498;">Typography</p>
+      <div class="font-row">
+        <div class="font-block">
+          <p class="font-role" style="color:#B0A498;">Display</p>
+          <p class="font-name" style="font-family:'Cormorant Garamond',serif;font-weight:500;color:#1A1A1A;">Cormorant Garamond</p>
+          <p class="font-sample" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;color:#8A7E74;">Healthy skin is the foundation.</p>
+          <p class="font-meta" style="color:#B0A498;">Google Fonts · 300, 400, 500</p>
+        </div>
+        <div class="font-block">
+          <p class="font-role" style="color:#B0A498;">Body</p>
+          <p class="font-name" style="font-family:'Inter',sans-serif;font-weight:400;color:#1A1A1A;">Inter</p>
+          <p class="font-sample" style="font-family:'Inter',sans-serif;font-weight:300;color:#8A7E74;">Board-certified specialists. Real results.</p>
+          <p class="font-meta" style="color:#B0A498;">Google Fonts · 300, 400, 500</p>
+        </div>
+      </div>
+    </div>
+    <p class="option-note" style="color:#6E6358;border-left-color:#E8B4A0;">International and restrained, closest to Dr. Barbara Sturm and Skin Laundry. Positions Skinmatics as globally premium. Peach-coral keeps it warm without feeling heavy.</p>
+  </div>
+</div>
+
+
+<!-- ===== OPTION 2 ===== -->
+<div class="option-card" style="background:#F5EDE0;">
+
+  <div class="doctor-card">
+    <img src="https://i.postimg.cc/rFjSffNx/Suganya.webp" alt="Dr. Suganya Naidu"/>
+    <div class="doctor-overlay" style="background:linear-gradient(to top, rgba(245,237,224,1) 0%, rgba(245,237,224,0.88) 55%, rgba(245,237,224,0) 100%);">
+      <p class="dr-name" style="font-family:'Playfair Display',serif;font-size:21px;font-weight:600;color:#2A2018;">Dr. Suganya Naidu</p>
+      <p class="dr-role" style="font-family:'Lato',sans-serif;font-size:10px;color:#8B6A40;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px;">Founder & Medical Director</p>
+      <a class="dr-btn" style="font-family:'Lato',sans-serif;background:#B8553A;color:#FAF0E6;font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;">Book a Consultation</a>
+    </div>
+  </div>
+
+  <div class="info-panel">
+    <p class="option-tag" style="color:#8B6A40;">Option 02 · Indian Luxe</p>
+    <div>
+      <p class="section-label" style="color:#B08A60;">Colour Palette</p>
+      <div class="swatches">
+        <div class="sw"><div class="sw-dot" style="background:#2A2018;"></div><span class="sw-hex" style="color:#6E5A40;">#2A2018</span><span class="sw-name" style="color:#9A7A58;">Deep Umber</span></div>
+        <div class="sw"><div class="sw-dot" style="background:#B8553A;"></div><span class="sw-hex" style="color:#6E5A40;">#B8553A</span><span class="sw-name" style="color:#9A7A58;">Terracotta</span></div>
+        <div class="sw"><div class="sw-dot" style="background:#C9A961;border:1px solid #ddd;"></div><span class="sw-hex" style="color:#6E5A40;">#C9A961</span><span class="sw-name" style="color:#9A7A58;">Brass Gold</span></div>
+        <div class="sw"><div class="sw-dot" style="background:#F5EDE0;border:1px solid #D5C4AD;"></div><span class="sw-hex" style="color:#6E5A40;">#F5EDE0</span><span class="sw-name" style="color:#9A7A58;">Warm Cream</span></div>
+        <div class="sw"><div class="sw-dot" style="background:#A8B5A0;"></div><span class="sw-hex" style="color:#6E5A40;">#A8B5A0</span><span class="sw-name" style="color:#9A7A58;">Sage</span></div>
+      </div>
+    </div>
+    <div>
+      <p class="section-label" style="color:#B08A60;">Typography</p>
+      <div class="font-row">
+        <div class="font-block">
+          <p class="font-role" style="color:#B08A60;">Display</p>
+          <p class="font-name" style="font-family:'Playfair Display',serif;font-weight:600;color:#2A2018;">Playfair Display</p>
+          <p class="font-sample" style="font-family:'Playfair Display',serif;font-style:italic;color:#8B6A40;">Designed for Indian skin.</p>
+          <p class="font-meta" style="color:#B08A60;">Google Fonts · 400, 500, 600</p>
+        </div>
+        <div class="font-block">
+          <p class="font-role" style="color:#B08A60;">Body</p>
+          <p class="font-name" style="font-family:'Lato',sans-serif;font-weight:400;color:#2A2018;">Lato</p>
+          <p class="font-sample" style="font-family:'Lato',sans-serif;font-weight:300;color:#8B6A40;">Board-certified specialists. Real results.</p>
+          <p class="font-meta" style="color:#B08A60;">Google Fonts · 300, 400, 700</p>
+        </div>
+      </div>
+    </div>
+    <p class="option-note" style="color:#6E5A40;border-left-color:#B8553A;">Warm cream + terracotta + brass. The palette Indian metro patients already trust as premium. Logo gold maps to the brass swatch. No Bangalore competitor owns this space.</p>
+  </div>
+</div>
+
+
+<!-- ===== OPTION 3 ===== -->
+<div class="option-card" style="background:#EEF0EC;">
+
+  <div class="doctor-card">
+    <img src="https://i.postimg.cc/rFjSffNx/Suganya.webp" alt="Dr. Suganya Naidu"/>
+    <div class="doctor-overlay" style="background:linear-gradient(to top, rgba(238,240,236,1) 0%, rgba(238,240,236,0.88) 55%, rgba(238,240,236,0) 100%);">
+      <p class="dr-name" style="font-family:'Fraunces',serif;font-size:22px;font-weight:300;font-style:italic;color:#1E2A24;">Dr. Suganya Naidu</p>
+      <p class="dr-role" style="font-family:'Manrope',sans-serif;font-size:11px;color:#6B7A72;letter-spacing:.02em;margin-bottom:16px;">Founder & Medical Director</p>
+      <a class="dr-btn" style="font-family:'Manrope',sans-serif;background:#3B5249;color:#EEF0EC;font-weight:600;font-size:11px;letter-spacing:.05em;">Book a Consultation</a>
+    </div>
+  </div>
+
+  <div class="info-panel">
+    <p class="option-tag" style="color:#6B7A72;">Option 03 · Modern Botanical</p>
+    <div>
+      <p class="section-label" style="color:#8A9A92;">Colour Palette</p>
+      <div class="swatches">
+        <div class="sw"><div class="sw-dot" style="background:#1E2A24;"></div><span class="sw-hex" style="color:#4A5A52;">#1E2A24</span><span class="sw-name" style="color:#8A9A92;">Forest Night</span></div>
+        <div class="sw"><div class="sw-dot" style="background:#3B5249;"></div><span class="sw-hex" style="color:#4A5A52;">#3B5249</span><span class="sw-name" style="color:#8A9A92;">Botanical Green</span></div>
+        <div class="sw"><div class="sw-dot" style="background:#C9A961;border:1px solid #ddd;"></div><span class="sw-hex" style="color:#4A5A52;">#C9A961</span><span class="sw-name" style="color:#8A9A92;">Champagne</span></div>
+        <div class="sw"><div class="sw-dot" style="background:#F7F4EE;border:1px solid #D0CCC4;"></div><span class="sw-hex" style="color:#4A5A52;">#F7F4EE</span><span class="sw-name" style="color:#8A9A92;">Warm White</span></div>
+        <div class="sw"><div class="sw-dot" style="background:#D4A5A0;"></div><span class="sw-hex" style="color:#4A5A52;">#D4A5A0</span><span class="sw-name" style="color:#8A9A92;">Dusty Rose</span></div>
+      </div>
+    </div>
+    <div>
+      <p class="section-label" style="color:#8A9A92;">Typography</p>
+      <div class="font-row">
+        <div class="font-block">
+          <p class="font-role" style="color:#8A9A92;">Display</p>
+          <p class="font-name" style="font-family:'Fraunces',serif;font-weight:300;font-style:italic;color:#1E2A24;">Fraunces</p>
+          <p class="font-sample" style="font-family:'Fraunces',serif;font-weight:300;font-style:italic;color:#6B7A72;">Skin is the body's largest organ.</p>
+          <p class="font-meta" style="color:#8A9A92;">Google Fonts · Variable · 9 to 144pt</p>
+        </div>
+        <div class="font-block">
+          <p class="font-role" style="color:#8A9A92;">Body</p>
+          <p class="font-name" style="font-family:'Manrope',sans-serif;font-weight:500;color:#1E2A24;">Manrope</p>
+          <p class="font-sample" style="font-family:'Manrope',sans-serif;font-weight:300;color:#6B7A72;">Board-certified specialists. Real results.</p>
+          <p class="font-meta" style="color:#8A9A92;">Google Fonts · 300, 400, 500, 600</p>
+        </div>
+      </div>
+    </div>
+    <p class="option-note" style="color:#4A5A52;border-left-color:#3B5249;">Calm and wellness-forward, positions dermatology as self-care. Fraunces italic is the most distinctive typographic move of the three. Memorable and very current 2024-25.</p>
+  </div>
+</div>
+
+</body>
+</html>
